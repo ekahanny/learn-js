@@ -70,3 +70,68 @@ const pemenang = (gold, silver, bronze, ...sisa) => {
 };
 
 console.log(pemenang(...nama));
+
+// DESTRUCTING
+
+// array
+const [gold, silver, bronze, ...sisaPeserta] = nama;
+console.log(gold);
+console.log(silver);
+console.log(bronze);
+console.log(sisaPeserta);
+
+// object
+
+/*
+Pada destructing object, kita harus 
+memberikan variabel yang sama dengan
+nama properti dari object tersebut,
+atau bisa juga kita gunakan aliases
+seperti contoh dibawah ini
+*/
+
+const userData = {
+  name: "ekahnny",
+  email: "ekahnny@gmail.com",
+};
+
+const { name: userName, email } = userData;
+console.log(userName);
+console.log(email);
+
+// Destructing untuk parameter
+
+/* Destructing juga dapat
+digunakan untuk membuat parameter
+pada sebuah function, dimana 
+parameter tersebut diambil dari 
+property dari sebuah object */
+
+const adminData = {
+  name: "admin",
+  email: "admin@gmail.com",
+  isAdmin: true,
+};
+
+const adminRole = ({ name: adminName, isAdmin }) => {
+  return `${adminName} - ${isAdmin}`;
+};
+
+console.log(adminRole(adminData));
+
+// Contoh lain
+const peoples = [
+  { names: "Chris", age: 23, city: "New York" },
+  { names: "Emily", age: 19, city: "Atlanta" },
+  { names: "Joe", age: 32, city: "New York" },
+  { names: "Kevin", age: 19, city: "Atlanta" },
+  { names: "Michelle", age: 27, city: "Los Angeles" },
+  { names: "Robert", age: 45, city: "Manhattan" },
+  { names: "Sarah", age: 31, city: "New York" },
+];
+
+const people = peoples.map(({ names, age, city }) => {
+  return `${names} is ${age} years old & lived in ${city}`;
+});
+
+console.log(people);
