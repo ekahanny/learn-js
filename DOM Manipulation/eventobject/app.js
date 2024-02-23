@@ -14,14 +14,14 @@ const input = document.querySelector("input");
 // * Mendapatkan object dari keyboard/mouse
 
 // keydown -> dijalankan ketika menekan tombol apapun
-// input.addEventListener("keydown", () => {
-//   console.log("Tombol ditekan");
-// });
+input.addEventListener("keydown", () => {
+  console.log("Tombol ditekan");
+});
 
 // keyup -> dijalankan ketika melepas tombol
-// input.addEventListener("keyup", () => {
-//   console.log("Tombol dilepas");
-// });
+input.addEventListener("keyup", () => {
+  console.log("Tombol dilepas");
+});
 
 // * Mendapatkan object dari input
 input.addEventListener("keydown", (e) => {
