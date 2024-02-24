@@ -18,6 +18,7 @@ diperlukan.
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const notes = document.querySelector("#notes");
+const lis = document.querySelectorAll("li");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -47,7 +48,36 @@ input.addEventListener("input", (e) => {
   //   document.querySelector("h1").innerText = input.value;
 });
 
-// EVENT BUBBLING
+// EVENT DELEGATION
 /*
 
+Event yang mewakili sebuah element
+yang dikenai eventlistener, namun
+yang dieksekusi adalah elemen yang lain
+
 */
+
+/*
+Jika menggunakan kode yg dikomen ini,
+maka hanya bisa menghapus list yang
+ditulis di html saja.. tidak bisa menghapus
+list yang ditambahkan oleh user
+
+*/
+
+// for (let li of lis) {
+//   li.addEventListener("click", function () {
+//     li.remove();
+//   });
+// }
+
+/*
+Untuk mengatasi hal tersebut,
+kita gunakan event delegation
+untuk menetapkan target yang
+mana yg akan dihapus (hanya
+akan menghapus list yg diklik)
+*/
+notes.addEventListener("click", (e) => {
+  e.target.nodeName === "LI" && e.target.remove();
+});
