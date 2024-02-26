@@ -23,8 +23,8 @@ homeBtn.addEventListener("click", () => {
       isGameOver = true;
       homeDisplay.classList.add("text-success");
     }
+    homeDisplay.textContent = homeScore;
   }
-  homeDisplay.textContent = homeScore;
 });
 
 guestBtn.addEventListener("click", () => {
@@ -34,8 +34,8 @@ guestBtn.addEventListener("click", () => {
       isGameOver = true;
       guestDisplay.classList.add("text-success");
     }
+    guestDisplay.textContent = guestScore;
   }
-  guestDisplay.textContent = guestScore;
 });
 
 function buttonControl() {
@@ -51,7 +51,6 @@ function buttonControl() {
 function reset() {
   homeScore = 0;
   guestScore = 0;
-  winnerScore = 0;
   isGameOver = false;
   homeDisplay.textContent = 0;
   guestDisplay.textContent = 0;
@@ -68,5 +67,3 @@ maxScore.addEventListener("change", () => {
 resetBtn.addEventListener("click", () => {
   reset();
 });
-
-buttonControl;
