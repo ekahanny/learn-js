@@ -20,10 +20,37 @@ akan menghasilkan error krn
 func hello hanya dideklarasikan
 untuk variabel arr
 */
-arr2.hello();
+// arr2.hello();
 
 // Deklarasikan pada array global
 Array.prototype.hello = () => {
   console.log("Hello World!");
 };
 arr2.hello(); // berhasil
+
+// Factory Function
+function convertColor(r, g, b) {
+  // property
+  const color = {};
+  color.r = r;
+  color.g = g;
+  color.b = b;
+
+  // method
+  color.rgb = function () {
+    const { r, g, b } = this;
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+
+  // method
+  color.hex = function () {
+    const { r, g, b } = this;
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  };
+
+  return color;
+}
+
+const colour = convertColor(123, 123, 123);
+console.log(colour.rgb());
+console.log(colour.hex());
