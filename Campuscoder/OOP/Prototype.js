@@ -1,4 +1,4 @@
-// Class
+// Prototype
 
 /*
 Konsep dimana javascript bisa
